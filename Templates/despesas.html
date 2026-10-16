@@ -90,10 +90,10 @@
                 <p>Gerencie e acompanhe todas as suas despesas.</p>
             </section>
 
-            <button class="btn-adicionar-despesa" type="button">
+            <a href="{{ url_for('#') }}" class="btn-adicionar-despesa" >
                 <img src="static/uploads/icone-mais.png" alt="Ícone de +">
                 <span>Adicionar despesa</span>
-            </button>
+            </a>
         </div>
 
         <div class="cards">
@@ -121,9 +121,9 @@
         </div>
 
         <div class="filtros-despesa">
-            <button class="filtro ativo" type="button">Todas</button>
-            <button class="filtro" type="button">Este mês</button>
-            <button class="filtro" type="button">Últimos 3 meses</button>
+            <a href="{{ url_for('#') }}" class="filtro ativo" >Todas</a>
+            <a href="{{ url_for('#') }}" class="filtro" >Este mês</a>
+            <a href="{{ url_for('#') }}" class="filtro" >Últimos 3 meses</a>
         </div>
 
 
@@ -137,25 +137,24 @@
                     <input type="text" placeholder="Buscar despesas por descrição...">
                 </div>
 
-                <button class="filtro-tabela" type="button">
+                <a href="{{ url_for('#') }}" class="filtro-tabela" >
                     <img class="icone-filtro" src="static/uploads/calendario-preto.png" alt="icone de caledário">
                     <span>Todos os meses</span>
                     <img class="icone-select" src="static/uploads/chevron-baixo-preto.png" alt="Ícone de seta para baixo">
-                </button>
+                </a>
 
-                <button class="filtro-tabela" type="button">
+                <a href="{{ url_for('#') }}" class="filtro-tabela" >
                     <img class="icone-filtro" src="static/uploads/etiqueta-preta.png" alt="icone de etiqueta">
                     <span>Todas as categorias</span>
                     <img class="icone-select" src="static/uploads/chevron-baixo-preto.png" alt="Ícone de seta para baixo">
-                </button>
+                </a>
 
-                <button class="filtro-tabela" type="button">
+                <a href="{{ url_for('#') }}" class="filtro-tabela" >
                     <img class="icone-filtro" src="static/uploads/barras-verticais.png" alt="três barras na vertical">
                     <span>Ordenar por data</span>
                     <img class="icone-select" src="static/uploads/chevron-baixo-preto.png" alt="Ícone de seta para baixo">
-                </button>
+                </a>
             </div>
-
 
             <div class="tabela-despesas-container">
                 <table class="tabela-despesas">
@@ -188,7 +187,7 @@
 
             <div class="ativar-inativar">
                 <a href="{{ url_for('') }}" class="btn-ativar-despesa">Ativar despesa</a>
-                <a href="{{ url_for('') }}" class="btn-inativar-despesa">Inativar despesa</a>
+                <a href="{{ url_for('inativar_movimentacao') }}" class="btn-inativar-despesa">Inativar despesa</a>
             </div>
         </section>
 
