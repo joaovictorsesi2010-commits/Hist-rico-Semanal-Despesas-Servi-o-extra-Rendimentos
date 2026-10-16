@@ -1,0 +1,304 @@
+.pagina-perfil {
+    min-height: 100vh;
+    display: flex;
+}
+
+.menu-lateral {
+    width: 250px;
+    min-height: 100vh;
+    padding: 25px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--branco);
+    border-right: 1px solid var(--cinza-claro);
+}
+
+.navegacao-destaque {
+    background-color: var(--verde-clarinho);
+    box-sizing: border-box;
+    margin-left: -10px;
+    padding-left: 10px;
+    border-radius: 4px;
+}
+
+.navegacao-destaque b {
+    color: var(--verde-escuro);
+}
+
+.logo-perfil {
+    width: 180px;
+    margin: 0 auto 35px;
+}
+
+.navegacao-perfil {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.navegacao-perfil a,
+.sair-perfil {
+    min-height: 34px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    color: var(--azul-cinzento-escuro);
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.navegacao-perfil a img,
+.sair-perfil img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.navegacao-perfil a:hover,
+.sair-perfil:hover {
+    color: var(--verde-escuro);
+    text-decoration: none;
+}
+
+.sair-perfil {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--cinza-claro);
+}
+
+.conteudo-perfil {
+    width: calc(100% - 250px);
+    min-height: 100vh;
+    padding: 15px 25px 22px;
+}
+
+.topo-perfil {
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.usuario-logado {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-right: 10px;
+}
+
+.usuario-logado img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.usuario-logado div {
+    display: flex;
+    flex-direction: column;
+}
+
+.usuario-logado strong {
+    font-size: 13px;
+}
+
+.usuario-logado span {
+    margin-top: 2px;
+    color: var(--cinza-escuro);
+    font-size: 11px;
+}
+
+.linha-topo {
+    height: 1px;
+    background-color: var(--cinza-claro);
+}
+
+.mes {
+    width: 33%;
+    display: flex;
+    background-color: var(--branco);
+    border: 1px solid var(--cinza-claro);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.mes p {
+    margin-right: 5px;
+}
+
+.mes2 {
+    display: flex;
+    gap: 20px;
+    background-color: var(--branco);
+    border: 1px solid var(--cinza-claro);
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+
+.mes2 button {
+    gap: 20px;
+    display: flex;
+    border: none;
+    background-color: transparent;
+}
+
+.mes2 img {
+    width: 20px;
+    height: 20px;
+}
+
+.semana {
+    width: 45%;
+    display: flex;
+    background-color: var(--branco);
+    border: 1px solid var(--cinza-claro);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+.semana p {
+    margin-right: 5px;
+}
+
+.semana2 {
+    display: flex;
+    width: 68%;
+    background-color: var(--branco);
+    border: 1px solid var(--cinza-claro);
+    border-radius: 10px;
+    padding: 10px 10px;
+}
+
+.semana2 img {
+    width: 20px;
+    height: 20px;
+}
+
+.semana2 button {
+    gap: 20px;
+    display: flex;
+    border: none;
+    background-color: transparent;
+}
+
+.mes-e-semana {
+    margin-top: 20px;
+    display: flex;
+    gap: 5px;
+}
+
+.cards {
+    display: flex;
+    gap: 5px;
+}
+
+.card {
+    width: 33%;
+    display: flex;
+}
+
+.card-img {
+    width: 50px;
+    height: 50px;
+    padding: 8px 8px;
+    background-color: var(--verde-clarinho);
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.card-img2 {
+    width: 50px;
+    height: 50px;
+    padding: 8px 8px;
+    background-color: var(--vermelho-clarinho);
+    border-radius: 10px;
+    margin-right: 15px;
+}
+
+.texto {
+    font-size: 13px;
+}
+
+.texto2 {
+    font-size: 10px;
+}
+
+.preco {
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--verde-escuro);
+}
+
+.preco2 {
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--vermelho);
+}
+
+.tabela-historico-container {
+    width: 100%;
+    margin-top: 12px;
+    padding: 15px;
+    background-color: var(--branco);
+    border: 1px solid var(--cinza-claro);
+    border-radius: 10px;
+}
+
+.titulo-tabela {
+    margin-bottom: 12px;
+    display: flex;
+}
+
+.titulo-tabela-icone img {
+    margin-right: 5px;
+    width: 35px;
+    height: 35px;
+    background-color: var(--verde-clarinho);
+    padding: 8px 8px;
+    border-radius: 10px;
+}
+
+.titulo-tabela h2 {
+    margin: 0;
+    font-size: 14px;
+    color: var(--azul-cinzento-escuro);
+}
+
+.titulo-tabela p {
+    margin: 3px 0 0;
+    font-size: 10px;
+    color: var(--cinza-escuro);
+}
+
+.tabela-historico-semanal {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-historico-semanal thead {
+    background-color: var(--cinza-claro);
+}
+
+.tabela-historico-semanal th {
+    height: 29px;
+    padding: 0 15px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--cinza-escuro);
+}
+
+.th-ordenacao {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.setas {
+    width: 9px;
+    height: 15px;
+    display: block;
+}

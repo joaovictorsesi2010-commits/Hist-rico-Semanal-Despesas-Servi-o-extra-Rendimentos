@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de serviço extra - Bolso em Dia</title>
+    <link rel="icon" href="assets/img/logo-escuro.png" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cadastro_servico_extra.css') }}">
+</head>
+<body>
+    <div class="pagina-perfil">
+        <aside class="menu-lateral">
+            <img class="logo-perfil" src="static/uploads/logo-horizontal.png" alt="Bolso em Dia">
+
+            <nav class="navegacao-perfil">
+                <a href="#">
+                    <img src="static/uploads/perfil-dashboard.png" alt="">
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#">
+                    <img src="static/uploads/perfil-rendimentos.png" alt="">
+                    <span>Rendimentos</span>
+                </a>
+
+                <a href="#">
+                    <img src="static/uploads/perfil-despesas.png" alt="">
+                    <span>Despesas</span>
+                </a>
+
+                <a href="#">
+                    <img src="static/uploads/perfil-dia-trabalhado.png" alt="">
+                    <span>Dia Trabalhado</span>
+                </a>
+
+                <a href="#" class="servico-extra-menu">
+                    <img src="static/uploads/perfil-servico-extra-verde.png" alt="">
+                    <span><b>Serviço Extra</b></span>
+                </a>
+
+                <a href="#">
+                    <img src="static/uploads/perfil-relatorios.png" alt="">
+                    <span>Relatórios</span>
+                </a>
+
+                <a href="#">
+                    <img src="static/uploads/perfil-historico.png" alt="">
+                    <span>Histórico Semanal</span>
+                </a>
+            </nav>
+
+            <a class="sair-perfil" href="login.html">
+                <img src="static/uploads/perfil-sair.png" alt="">
+                <span>Sair</span>
+            </a>
+        </aside>
+
+    <main class="conteudo-perfil">
+        <header class="topo-perfil">
+            <div></div>
+
+            <div class="usuario-logado">
+                <img src="static/uploads/perfil-usuario-topo.png" alt="">
+                <div>
+                    <strong>Rodolfo</strong>
+                    <span>rodolfo@email.com</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="linha-topo"></div>
+
+
+        <div class="cabecalho-despesa">
+            <section class="titulo-perfil">
+                <p>Olá, Rodolfo!</p>
+                <h1>Cadastrar Serviço Extra</h1>
+                <p>Registre aqui um serviço extra realizado e o valor recebido</p>
+            </section>
+        </div>
+
+        <div class="registrar-servico">
+            <div class="titulo">
+                <img class="icone-titulo" src="static/uploads/calendario-verde.png" alt="icone de caledário verde">
+                <div class="titulo-info">
+                    <h2>Registrar Serviço Extra</h2>
+                    <p>Preencha as informações abaixo para registrar um serviço extra.</p>
+                </div>
+            </div>
+
+            <div class="servico-realizado">
+                <div class="texto">
+                    <p>Serviço realizado</p>
+                    <p class="asteristico">*</p>
+                </div>
+                <input type="text" placeholder="Ex: Manutenção,  Pintura, Instalação, Consultoria, etc">
+            </div>
+
+            <div class="valor-e-data">
+                <div class="valor-recebido">
+                    <div class="texto">
+                        <p>Valor recebido</p>
+                        <p class="asteristico">*</p>
+                    </div>
+                    <div class="input-com-bloco">
+                        <span class="bloco-input">R$</span>
+                        <input type="text" placeholder="0,00">
+                    </div>
+                </div>
+
+                <div class="valor-recebido">
+                    <div class="texto">
+                        <p>Data</p>
+                        <p class="asteristico">*</p>
+                    </div>
+                    <div class="input-com-bloco">
+                        <span class="bloco-input">
+                            <img src="static/uploads/perfil-dia-trabalhado.png" alt="icone de calendário">
+                        </span>
+                        <input type="text" placeholder="dd/mm/aaaa">
+                    </div>
+                </div>
+            </div>
+
+            <div class="descricao-servico">
+                <div class="texto">
+                    <p>Descrição do serviço</p>
+                </div>
+                <div class="input-com-bloco">
+                    <span class="imagem-input">
+                        <img src="static/uploads/pasta-escrita-cinza-claro.png" alt="icone de calendário">
+                    </span>
+                    <input type="text" placeholder="Descreva os detalhes do serviço extra...">
+                        <img class="imagem-canto" src="static/uploads/riscos-canto.png" alt="icone de calendário">
+                </div>
+                <p class="caracteres">0/500</p>
+            </div>
+
+            <div class="botoes">
+                <button class="btn-cancelar" type="button">
+                    <span>Cancelar</span>
+                </button>
+
+                <button class="btn-registrar" type="button">
+                    <span>Registrar</span>
+                </button>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>

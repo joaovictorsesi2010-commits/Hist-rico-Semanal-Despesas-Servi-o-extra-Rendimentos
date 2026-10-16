@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico semanal - Bolso em Dia</title>
+    <link rel="icon" href="assets/img/logo-escuro.png" type="image/png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/historico_semanal.css') }}">
+</head>
+<body>
+    <div class="pagina-perfil">
+        <aside class="menu-lateral">
+            <img class="logo-perfil" src="static/uploads/logo-horizontal.png" alt="Bolso em Dia">
+
+            <nav class="navegacao-perfil">
+                <a href="#">
+                    <img src="static/uploads/perfil-dashboard.png" alt="">
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#">
+                    <img src="static/uploads/perfil-rendimentos.png" alt="">
+                    <span>Rendimentos</span>
+                </a>
+
+                <a href="#">
+                    <img src="static/uploads/perfil-despesas.png" alt="">
+                    <span>Despesas</span>
+                </a>
+
+                <a href="#">
+                    <img src="static/uploads/perfil-dia-trabalhado.png" alt="">
+                    <span>Dia Trabalhado</span>
+                </a>
+
+                <a href="#">
+                    <img src="static/uploads/perfil-servico-extra.png" alt="">
+                    <span>Serviço Extra</span>
+                </a>
+
+                <a href="#">
+                    <img src="static/uploads/perfil-relatorios.png" alt="">
+                    <span>Relatórios</span>
+                </a>
+
+                <a href="#" class="navegacao-destaque">
+                    <img src="static/uploads/relogio-verde.png" alt="">
+                    <span><b>Histórico Semanal</b></span>
+                </a>
+            </nav>
+
+            <a class="sair-perfil" href="login.html">
+                <img src="static/uploads/perfil-sair.png" alt="">
+                <span>Sair</span>
+            </a>
+        </aside>
+
+    <main class="conteudo-perfil">
+        <header class="topo-perfil">
+            <div></div>
+
+            <div class="usuario-logado">
+                <img src="static/uploads/perfil-usuario-topo.png" alt="">
+                <div>
+                    <strong>Rodolfo</strong>
+                    <span>rodolfo@email.com</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="linha-topo"></div>
+
+
+        <div class="cabecalho-despesa">
+            <section class="titulo-perfil">
+                <p>Olá, Rodolfo!</p>
+                <h1>Histórico Semanal</h1>
+                <p>Consulte os registros por mês e por semana.</p>
+            </section>
+        </div>
+
+        <div class="mes-e-semana">
+            <div class="mes">
+                <p>Mês</p>
+                <div class="mes2">
+                    <button>
+                        <img src="static/uploads/calendario-preto.png" alt="icone de calendário preto">
+                        <span>Dezembro</span>
+                        <img src="static/uploads/chevron-baixo-preto.png" alt="icone de chevron preto para baixo">
+                    </button>
+                </div>
+            </div>
+
+            <div class="semana">
+                <p>Semana</p>
+                <div class="semana2">
+                    <button>
+                        <img src="static/uploads/calendario-preto.png" alt="icone de calendário preto">
+                        <span>2ª semana (08/12 a 14/12)</span>
+                        <img src="static/uploads/chevron-baixo-preto.png" alt="icone de chevron preto para baixo">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                    <img class="card-img" src="static/uploads/barras-vertical-verde.png" alt="icone de barras na vertical">
+                    <div class="card-info">
+                        <p class="texto">Total de ganhos</p>
+                        <p class="preco" id="total_ganhos"></p>
+                        <p class="texto2">5 registros</p>
+                    </div>
+            </div>
+            <div class="card">
+                    <img class="card-img2" src="static/uploads/perfil-despesa-vermelho.png" alt="icone de cartão vermelho">
+                    <div class="card-info">
+                        <p class="texto">Total de despesas</p>
+                        <p class="preco2" id="total_despesas"></p>
+                        <p class="texto2">1 registro</p>
+                    </div>
+            </div>
+            <div class="card">
+                    <img class="card-img" src="static/uploads/perfil-servico-extra-verde.png" alt="icone de caledário">
+                    <div class="card-info">
+                        <p class="texto">Saldo da semana</p>
+                        <p class="preco" id="saldo_semana"></p>
+                    </div>
+            </div>
+        </div>
+
+        <div class="tabela-historico-container">
+
+            <div class="titulo-tabela">
+                <div class="titulo-tabela-icone">
+                    <img src="static/uploads/calendario-verde.png" alt="">
+                </div>
+                <div class="titulo-tabela-info">
+                    <h2>Registros da semana</h2>
+                    <p>08 de dezembro de 2024 a 14 de dezembro de 2024</p>
+                </div>
+            </div>
+
+            <table class="tabela-historico-semanal">
+                <thead>
+                    <tr>
+                        <th>
+                            <div class="th-ordenacao">
+                                <span>Data</span>
+                                <img class="setas" src="static/uploads/setas.png" alt="">
+                            </div>
+                        </th>
+                        <th>Categoria</th>
+                        <th>Descrição</th>
+                        <th>
+                            <div class="th-ordenacao">
+                                <span>Valor</span>
+                                <img class="setas" src="static/uploads/setas.png" alt="">
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabela-historico-semanal">
+                </tbody>
+            </table>
+        </div>
+
+
+    </main>
+</body>
+</html>
