@@ -65,17 +65,19 @@
 
     <main class="conteudo-perfil">
         <header class="topo-perfil">
-            {% with mensagens = get_flashed_messages(with_categories=true) %}
-                {% for categoria, mensagem in mensagens %}
-                    <p class="mensagem {{ categoria }}">{{ mensagem }}</p>
-                {% endfor %}
-            {% endwith %}
+            <div></div>
 
-            <div class="saudacao">
-                <!-- Exibe somente os dois primeiros nomes do usuário -->
-                <p>Olá, {{ usuario.split()[:2] | join(' ') }}!</p>
-                <p>Bem-vindo(a) ao Bolso em Dia.</p>
-            </div>
+            <a href="{{ url_for('perfil') }}" class="usuario-logado">
+                {% if usuario[9] %}
+                    <img src="{{ url_for('static', filename='Uploads/' + usuario[9]) }}" alt="Foto do usuário">
+                {% else %}
+                    <img src="{{ url_for('static', filename='Uploads/perfil-usuario-topo.png') }}" alt="Foto padrão">
+                {% endif %}
+                <div>
+                    <strong>{{ usuario[0].split()[:2] | join(' ') }}</strong>
+                    <span>{{ usuario[1] }}</span>
+                </div>
+            </a>
         </header>
 
         <div class="linha-topo"></div>
