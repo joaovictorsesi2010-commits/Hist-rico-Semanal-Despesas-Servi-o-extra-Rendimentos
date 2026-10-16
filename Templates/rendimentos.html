@@ -91,20 +91,19 @@
             </section>
 
 
-            <button class="btn-adicionar-rendimento" type="button">
+            <a href="{{ url_for('#') }}" class="btn-adicionar-rendimento">
                 <img src="static/uploads/icone-mais.png" alt="Ícone de +">
                 <span>Adicionar rendimento</span>
                 <img src="static/uploads/chevron-baixo-branco.png" alt="Ícone de seta para baixo">
-            </button>
+            </a>
         </div>
 
 
-
         <div class="filtros-rendimentos">
-            <button class="filtro ativo" type="button">Todos</button>
-            <button class="filtro" type="button">Receitas</button>
-            <button class="filtro" type="button">Dias Trabalhados</button>
-            <button class="filtro" type="button">Serviços Extras</button>
+            <a href="{{ url_for('#') }}" class="filtro ativo" >Todos</a>
+            <a href="{{ url_for('#') }}" class="filtro" >Receitas</a>
+            <a href="{{ url_for('#') }}" class="filtro" >Dias Trabalhados</a>
+            <a href="{{ url_for('#') }}" class="filtro" >Serviços Extras</a>
         </div>
 
 
@@ -118,24 +117,23 @@
                     <input type="text" placeholder="Buscar rendimentos por descrição...">
                 </div>
 
-                <button class="filtro-tabela" type="button">
+                <a href="{{ url_for('#') }}" class="filtro-tabela">
                     <img class="icone-filtro" src="static/uploads/calendario-preto.png" alt="icone de caledário">
                     <span>Todos os meses</span>
                     <img class="icone-select" src="static/uploads/chevron-baixo-preto.png" alt="Ícone de seta para baixo">
-                </button>
+                </a>
 
-                <button class="filtro-tabela" type="button">
+                <a href="{{ url_for('#') }}" class="filtro-tabela">
                     <img class="icone-filtro" src="static/uploads/etiqueta-preta.png" alt="icone de etiqueta">
                     <span>Todas as categorias</span>
                     <img class="icone-select" src="static/uploads/chevron-baixo-preto.png" alt="Ícone de seta para baixo">
-                </button>
+                </a>
 
-                <button class="filtro-tabela-ordenar" type="button">
+                <a href="{{ url_for('#') }}" class="filtro-tabela-ordenar">
                     <span>Ordenar por data</span>
                     <img class="icone-select" src="static/uploads/chevron-baixo-preto.png" alt="Ícone de seta para baixo">
-                </button>
+                </a>
             </div>
-
 
             <div class="tabela-rendimentos-container">
                 <table class="tabela-rendimentos">
@@ -168,7 +166,7 @@
 
             <div class="ativar-inativar">
                 <a href="{{ url_for('') }}" class="btn-ativar-rendimento">Ativar rendimento</a>
-                <a href="{{ url_for('') }}" class="btn-inativar-rendimento">Inativar rendimento</a>
+                <a href="{{ url_for('inativar_movimentacao') }}" class="btn-inativar-rendimento">Inativar rendimento</a>
             </div>
         </section>
 
