@@ -1,60 +1,49 @@
+
 <!DOCTYPE html>
 <html lang="pt-br" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Histórico semanal - Bolso em Dia</title>
-    <link rel="icon" href="assets/img/logo-escuro.png" type="image/png">
+    <link rel="icon" href="{{ url_for('static', filename='uploads/logo-escuro.png') }}" type="image/png">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/global.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/historico_semanal.css') }}">
 </head>
 <body>
     <div class="pagina-perfil">
         <aside class="menu-lateral">
-            <!-- Volta para a dashboard. A seta aparece somente no mobile. -->
             <a href="{{ url_for('dashboard') }}" class="seta-voltar">‹</a>
-
-            <img class="logo-perfil"
-                 src="{{ url_for('static', filename='uploads/logo-horizontal.png') }}"
-                 alt="Bolso em Dia">
-
+            <img class="logo-perfil" src="{{ url_for('static', filename='uploads/logo-horizontal.png') }}" alt="Bolso em Dia">
             <nav class="navegacao-perfil">
-                <a href="{{ url_for('dashboard') }}" class="pagina-ativa">
+                <a href="{{ url_for('dashboard') }}">
                     <img src="{{ url_for('static', filename='uploads/perfil-dashboard.png') }}" alt="">
                     <span>Dashboard</span>
                 </a>
-
-                <a href="#">
+                <a href="{{ url_for('rendimentos') }}">
                     <img src="{{ url_for('static', filename='uploads/perfil-rendimentos.png') }}" alt="">
                     <span>Rendimentos</span>
                 </a>
-
-                <a href="#">
+                <a href="{{ url_for('despesas') }}">
                     <img src="{{ url_for('static', filename='uploads/perfil-despesas.png') }}" alt="">
                     <span>Despesas</span>
                 </a>
-
-                <a href="#">
+                <a href="{{ url_for('calcular_dia_trabalhado') }}">
                     <img src="{{ url_for('static', filename='uploads/perfil-dia-trabalhado.png') }}" alt="">
                     <span>Dia Trabalhado</span>
                 </a>
-
                 <a href="{{ url_for('servico_extra') }}">
                     <img src="{{ url_for('static', filename='uploads/perfil-servico-extra.png') }}" alt="">
                     <span>Serviço Extra</span>
                 </a>
-
                 <a href="#">
                     <img src="{{ url_for('static', filename='uploads/perfil-relatorios.png') }}" alt="">
                     <span>Relatórios</span>
                 </a>
-
-                <a href="#" class="navegacao-destaque">
+                <a href="{{ url_for('historico_semanal') }}" class="navegacao-destaque pagina-ativa">
                     <img src="{{ url_for('static', filename='uploads/perfil-historico.png') }}" alt="">
                     <span><b>Histórico Semanal</b></span>
                 </a>
             </nav>
-
             <a class="sair-perfil" href="{{ url_for('logout') }}">
                 <div class="sair-conteudo">
                     <img src="{{ url_for('static', filename='uploads/perfil-sair.png') }}" alt="">
@@ -62,123 +51,124 @@
                 </div>
             </a>
         </aside>
-
-    <main class="conteudo-perfil">
-        <header class="topo-perfil">
-            <div></div>
-
-            <a href="{{ url_for('perfil') }}" class="usuario-logado">
-                {% if usuario[9] %}
-                    <img src="{{ url_for('static', filename='Uploads/' + usuario[9]) }}" alt="Foto do usuário">
-                {% else %}
-                    <img src="{{ url_for('static', filename='Uploads/perfil-usuario-topo.png') }}" alt="Foto padrão">
-                {% endif %}
-                <div>
-                    <strong>{{ usuario[0].split()[:2] | join(' ') }}</strong>
-                    <span>{{ usuario[1] }}</span>
-                </div>
-            </a>
-        </header>
-
-        <div class="linha-topo"></div>
-
-
-        <div class="cabecalho-despesa">
-            <section class="titulo-perfil">
-                <p>Olá, Rodolfo!</p>
-                <h1>Histórico Semanal</h1>
-                <p>Consulte os registros por mês e por semana.</p>
-            </section>
-        </div>
-
-        <div class="mes-e-semana">
-            <div class="mes">
-                <p>Mês</p>
-                <div class="mes2">
-                    <button>
-                        <img src="static/uploads/calendario-preto.png" alt="icone de calendário preto">
-                        <span>Dezembro</span>
-                        <img src="static/uploads/chevron-baixo-preto.png" alt="icone de chevron preto para baixo">
-                    </button>
-                </div>
+        <main class="conteudo-perfil">
+            <header class="topo-perfil">
+                <div></div>
+                <a href="{{ url_for('perfil') }}" class="usuario-logado">
+                    {% if usuario[9] %}
+                        <img src="{{ url_for('static', filename='Uploads/' + usuario[9]) }}" alt="Foto do usuário">
+                    {% else %}
+                        <img src="{{ url_for('static', filename='Uploads/perfil-usuario-topo.png') }}" alt="Foto padrão">
+                    {% endif %}
+                    <div>
+                        <strong>{{ usuario[0].split()[:2] | join(' ') }}</strong>
+                        <span>{{ usuario[1] }}</span>
+                    </div>
+                </a>
+            </header>
+            <div class="linha-topo"></div>
+            <div class="cabecalho-despesa">
+                <section class="titulo-perfil">
+                    <p>Olá, {{ usuario[0].split()[0] }}!</p>
+                    <h1>Histórico Semanal</h1>
+                    <p>Consulte os registros por mês e por semana.</p>
+                </section>
             </div>
-
-            <div class="semana">
-                <p>Semana</p>
-                <div class="semana2">
-                    <button>
-                        <img src="static/uploads/calendario-preto.png" alt="icone de calendário preto">
-                        <span>2ª semana (08/12 a 14/12)</span>
-                        <img src="static/uploads/chevron-baixo-preto.png" alt="icone de chevron preto para baixo">
-                    </button>
+            <form method="GET" action="{{ url_for('historico_semanal') }}" class="mes-e-semana">
+                <div class="mes">
+                    <p>Mês</p>
+                    <div class="mes2">
+                        <select name="mes" id="filtro-mes" onchange="this.form.submit()">
+                            {% for mes in meses %}
+                                <option value="{{ mes.valor }}" {% if mes.valor == mes_selecionado %}selected{% endif %}>{{ mes.nome }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <div class="cards">
-            <div class="card">
-                    <img class="card-img" src="static/uploads/barras-vertical-verde.png" alt="icone de barras na vertical">
+                <div class="semana">
+                    <p>Semana</p>
+                    <div class="semana2">
+                        <select name="semana" id="filtro-semana" onchange="this.form.submit()">
+                            {% for semana in semanas %}
+                                <option value="{{ semana.valor }}" {% if semana.valor == semana_selecionada %}selected{% endif %}>{{ semana.nome }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <div class="cards">
+                <div class="card">
+                    <img class="card-img" src="{{ url_for('static', filename='uploads/barras-vertical-verde.png') }}" alt="Ícone de ganhos">
                     <div class="card-info">
                         <p class="texto">Total de ganhos</p>
-                        <p class="preco" id="total_ganhos"></p>
-                        <p class="texto2">5 registros</p>
+                        <p class="preco" id="total_ganhos">{{ "R$ %.2f"|format(total_ganhos) }}</p>
+                        <p class="texto2">{{ quantidade_ganhos }} {% if quantidade_ganhos == 1 %}registro{% else %}registros{% endif %}</p>
                     </div>
-            </div>
-            <div class="card">
-                    <img class="card-img2" src="static/uploads/perfil-despesa-vermelho.png" alt="icone de cartão vermelho">
+                </div>
+                <div class="card">
+                    <img class="card-img2" src="{{ url_for('static', filename='uploads/perfil-despesa-vermelho.png') }}" alt="Ícone de despesas">
                     <div class="card-info">
                         <p class="texto">Total de despesas</p>
-                        <p class="preco2" id="total_despesas"></p>
-                        <p class="texto2">1 registro</p>
+                        <p class="preco2" id="total_despesas">{{ "R$ %.2f"|format(total_despesas) }}</p>
+                        <p class="texto2">{{ quantidade_despesas }} {% if quantidade_despesas == 1 %}registro{% else %}registros{% endif %}</p>
                     </div>
-            </div>
-            <div class="card">
-                    <img class="card-img" src="static/uploads/perfil-servico-extra-verde.png" alt="icone de caledário">
+                </div>
+                <div class="card">
+                    <img class="card-img" src="{{ url_for('static', filename='uploads/perfil-servico-extra-verde.png') }}" alt="Ícone de calendário">
                     <div class="card-info">
                         <p class="texto">Saldo da semana</p>
-                        <p class="preco" id="saldo_semana"></p>
+                        <p class="preco" id="saldo_semana">{{ "R$ %.2f"|format(saldo_semana) }}</p>
                     </div>
-            </div>
-        </div>
-
-        <div class="tabela-historico-container">
-
-            <div class="titulo-tabela">
-                <div class="titulo-tabela-icone">
-                    <img src="static/uploads/calendario-verde.png" alt="">
-                </div>
-                <div class="titulo-tabela-info">
-                    <h2>Registros da semana</h2>
-                    <p>08 de dezembro de 2024 a 14 de dezembro de 2024</p>
                 </div>
             </div>
-
-            <table class="tabela-historico-semanal">
-                <thead>
-                    <tr>
-                        <th>
-                            <div class="th-ordenacao">
-                                <span>Data</span>
-                                <img class="setas" src="static/uploads/setas.png" alt="">
-                            </div>
-                        </th>
-                        <th>Categoria</th>
-                        <th>Descrição</th>
-                        <th>
-                            <div class="th-ordenacao">
-                                <span>Valor</span>
-                                <img class="setas" src="static/uploads/setas.png" alt="">
-                            </div>
-                        </th>
-                    </tr>
-                </thead>
-
-                <tbody id="tabela-historico-semanal">
-                </tbody>
-            </table>
-        </div>
-
-
-    </main>
+            <div class="tabela-historico-container">
+                <div class="titulo-tabela">
+                    <div class="titulo-tabela-icone">
+                        <img src="{{ url_for('static', filename='uploads/calendario-verde.png') }}" alt="">
+                    </div>
+                    <div class="titulo-tabela-info">
+                        <h2>Registros da semana</h2>
+                        <p>{{ periodo_semana }}</p>
+                    </div>
+                </div>
+                <table class="tabela-historico-semanal">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="th-ordenacao">
+                                    <span>Data</span>
+                                    <img class="setas" src="{{ url_for('static', filename='uploads/setas.png') }}" alt="">
+                                </div>
+                            </th>
+                            <th>Categoria</th>
+                            <th>Descrição</th>
+                            <th>
+                                <div class="th-ordenacao">
+                                    <span>Valor</span>
+                                    <img class="setas" src="{{ url_for('static', filename='uploads/setas.png') }}" alt="">
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabela-historico-semanal">
+                        {% if registros_semana %}
+                            {% for registro in registros_semana %}
+                                <tr>
+                                    <td>{{ registro.data.strftime('%d/%m/%Y') }}</td>
+                                    <td>{{ registro.categoria }}</td>
+                                    <td>{{ registro.descricao }}</td>
+                                    <td>{{ "R$ %.2f"|format(registro.valor) }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="4">Nenhum registro encontrado nesta semana.</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
