@@ -27,7 +27,7 @@
                     <img src="{{ url_for('static', filename='uploads/perfil-despesas.png') }}" alt="">
                     <span>Despesas</span>
                 </a>
-                <a href="{{ url_for('calcular_dia_trabalhado') }}">
+                <a href="{{ url_for('dia_trabalhado') }}">
                     <img src="{{ url_for('static', filename='uploads/perfil-dia-trabalhado.png') }}" alt="">
                     <span>Dia Trabalhado</span>
                 </a>
@@ -39,7 +39,7 @@
                     <img src="{{ url_for('static', filename='uploads/perfil-relatorios.png') }}" alt="">
                     <span>Relatórios</span>
                 </a>
-                <a href="{{ url_for('historico_semanal') }}" class="navegacao-destaque pagina-ativa">
+                <a href="{{ url_for('historico_semanal') }}" class="pagina-ativa">
                     <img src="{{ url_for('static', filename='uploads/perfil-historico.png') }}" alt="">
                     <span><b>Histórico Semanal</b></span>
                 </a>
@@ -78,9 +78,9 @@
                 <div class="mes">
                     <p>Mês</p>
                     <div class="mes2">
-                        <select name="mes" id="filtro-mes" onchange="this.form.submit()">
+                        <select name="mes" id="filtro-mes">
                             {% for mes in meses %}
-                                <option value="{{ mes.valor }}" {% if mes.valor == mes_selecionado %}selected{% endif %}>{{ mes.nome }}</option>
+                                <option value="{{ mes.valor }}">{{ mes.nome }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -88,9 +88,9 @@
                 <div class="semana">
                     <p>Semana</p>
                     <div class="semana2">
-                        <select name="semana" id="filtro-semana" onchange="this.form.submit()">
+                        <select name="semana" id="filtro-semana">
                             {% for semana in semanas %}
-                                <option value="{{ semana.valor }}" {% if semana.valor == semana_selecionada %}selected{% endif %}>{{ semana.nome }}</option>
+                                <option value="{{ semana.valor }}">{{  }}</option>
                             {% endfor %}
                         </select>
                     </div>
@@ -101,23 +101,23 @@
                     <img class="card-img" src="{{ url_for('static', filename='uploads/barras-vertical-verde.png') }}" alt="Ícone de ganhos">
                     <div class="card-info">
                         <p class="texto">Total de ganhos</p>
-                        <p class="preco" id="total_ganhos">{{ "R$ %.2f"|format(total_ganhos) }}</p>
-                        <p class="texto2">{{ quantidade_ganhos }} {% if quantidade_ganhos == 1 %}registro{% else %}registros{% endif %}</p>
+                        <p class="preco" id="total_ganhos">{{  }}</p>
+                        <p class="texto2">{{  }}</p>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card-img2" src="{{ url_for('static', filename='uploads/perfil-despesa-vermelho.png') }}" alt="Ícone de despesas">
                     <div class="card-info">
                         <p class="texto">Total de despesas</p>
-                        <p class="preco2" id="total_despesas">{{ "R$ %.2f"|format(total_despesas) }}</p>
-                        <p class="texto2">{{ quantidade_despesas }} {% if quantidade_despesas == 1 %}registro{% else %}registros{% endif %}</p>
+                        <p class="preco2" id="total_despesas">{{  }}</p>
+                        <p class="texto2">{{  }}</p>
                     </div>
                 </div>
                 <div class="card">
                     <img class="card-img" src="{{ url_for('static', filename='uploads/perfil-servico-extra-verde.png') }}" alt="Ícone de calendário">
                     <div class="card-info">
                         <p class="texto">Saldo da semana</p>
-                        <p class="preco" id="saldo_semana">{{ "R$ %.2f"|format(saldo_semana) }}</p>
+                        <p class="preco" id="saldo_semana">{{  }}</p>
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@
                     </div>
                     <div class="titulo-tabela-info">
                         <h2>Registros da semana</h2>
-                        <p>{{ periodo_semana }}</p>
+                        <p>{{  }}</p>
                     </div>
                 </div>
                 <table class="tabela-historico-semanal">
@@ -154,15 +154,15 @@
                         {% if registros_semana %}
                             {% for registro in registros_semana %}
                                 <tr>
-                                    <td>{{ registro.data.strftime('%d/%m/%Y') }}</td>
-                                    <td>{{ registro.categoria }}</td>
-                                    <td>{{ registro.descricao }}</td>
-                                    <td>{{ "R$ %.2f"|format(registro.valor) }}</td>
+                                    <td>{{  }}</td>
+                                    <td>{{  }}</td>
+                                    <td>{{  }}</td>
+                                    <td>{{  }}</td>
                                 </tr>
                             {% endfor %}
                         {% else %}
                             <tr>
-                                <td colspan="4">Nenhum registro encontrado nesta semana.</td>
+                                <td>Nenhum registro encontrado nesta semana.</td>
                             </tr>
                         {% endif %}
                     </tbody>
